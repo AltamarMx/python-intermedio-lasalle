@@ -1,0 +1,30 @@
+### Bienvenida {.unnumbered}
+
+![](img/qrcode_altamarmx.github.io.png)
+
+Bienvenido a este taller, para iniciarlo se requiere que tengas conocimientos básicos de Python, y que tengas instalado miniconda.
+
+
+### ¿Qué aprenderás?
+
+- Ambientes virtuales con uv
+- Redes neuronales con TensorFlow
+- Quarto
+- Shiny y MicroPython para prototipado rápido
+
+### Dia 1
+
+1. Instalación personalizada de Python (descargar e instalar miniconda)
+2. VSCode y extensiones
+3. Proyectos con uv 
+4. Red neuronal 
+
+### Dia 2
+
+1. Quarto para documentos técnicos
+2. Prototipado rápido de dispositivo con MicroPython y Shiny
+
+## Repositorio y datos
+
+El repositorio con los datos, libretas y los documentos fuentes pare reproducir este taller se encuentran [aquí](https://github.com/altamarmx/python-intermedio-lasalle).
+ 

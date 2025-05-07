@@ -1,0 +1,52 @@
+# Descargar WinPython
+
+1. Abre tu navegador y ve a la página oficial:  
+   `https://winpython.github.io/`  
+2. En **Latest Releases**, elige la versión de **WinPython 64-bit** para Python 3.x que prefieras.  
+3. Descarga el ZIP (por ejemplo: `WinPython64-3.11.5.0.zip`).
+
+# Descomprimir en una carpeta segura
+
+1. Crea una carpeta fija donde no se elimine por accidente, por ejemplo:  
+```
+
+C:\Herramientas\WinPython
+
+```
+2. Con el Explorador de Windows, haz clic derecho sobre el ZIP → **Extraer todo…** → selecciona `C:\Herramientas\WinPython`.
+
+#  Anclar el WinPython Command Prompt
+
+1. Abre la carpeta de WinPython:  
+```
+
+C:\Herramientas\WinPython
+
+```
+2. Localiza el ejecutable **WinPython Command Prompt.exe**.  
+3. Haz clic derecho → **Anclar a la barra de tareas** (o **Anclar al inicio**).
+
+#  Ejecutar Jupyter Notebook en tu espacio de trabajo
+
+1. Lanza el **WinPython Command Prompt** desde la barra de tareas.  
+2. Cambia al directorio de tu proyecto, por ejemplo:  
+    ```bat
+    cd  D:\TallerPython\Basico
+    ```
+
+3. Inicia Jupyter Notebook con:
+
+   ```bat
+   jupyter notebook 
+   ```
+   ó
+
+   ```bat
+   jupyter notebook D:\TallerPython\Basico
+   ```
+
+4. Se abrirá tu navegador en `http://localhost:8888`, mostrando el contenido de `D:\TallerPython\Basico`.
+
+¡Liste para tu taller de Python!
+
+

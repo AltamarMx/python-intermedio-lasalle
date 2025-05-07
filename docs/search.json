@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Python intermedio, LaSalle, Oaxaca",
+    "section": "",
+    "text": "Bienvenida\nBienvenido a este taller, para iniciarlo se requiere que tengas conocimientos básicos de Python, y que tengas instalado miniconda.",
+    "crumbs": [
+      "Bienvenida"
+    ]
+  },
+  {
+    "objectID": "index.html#repositorio-y-datos",
+    "href": "index.html#repositorio-y-datos",
+    "title": "Python intermedio, LaSalle, Oaxaca",
+    "section": "Repositorio y datos",
+    "text": "Repositorio y datos\nEl repositorio con los datos, libretas y los documentos fuentes pare reproducir este taller se encuentran aquí.",
+    "crumbs": [
+      "Bienvenida"
+    ]
+  },
+  {
+    "objectID": "notebooks/01/001_instala_python.html",
+    "href": "notebooks/01/001_instala_python.html",
+    "title": "1  Descargar WinPython",
+    "section": "",
+    "text": "Abre tu navegador y ve a la página oficial:\nhttps://winpython.github.io/\n\nEn Latest Releases, elige la versión de WinPython 64-bit para Python 3.x que prefieras.\n\nDescarga el ZIP (por ejemplo: WinPython64-3.11.5.0.zip).\n\n\n2 Descomprimir en una carpeta segura\n\nCrea una carpeta fija donde no se elimine por accidente, por ejemplo:\n\n\n\nC:\\Herramientas\\WinPython\n\n\nCon el Explorador de Windows, haz clic derecho sobre el ZIP → Extraer todo… → selecciona C:\\Herramientas\\WinPython.\n\n\n\n3 Anclar el WinPython Command Prompt\n\nAbre la carpeta de WinPython:\n\n\n\nC:\\Herramientas\\WinPython\n\n\nLocaliza el ejecutable WinPython Command Prompt.exe.\n\nHaz clic derecho → Anclar a la barra de tareas (o Anclar al inicio).\n\n\n\n4 Ejecutar Jupyter Notebook en tu espacio de trabajo\n\nLanza el WinPython Command Prompt desde la barra de tareas.\n\nCambia al directorio de tu proyecto, por ejemplo:\nbat     cd  D:\\TallerPython\\Basico\nInicia Jupyter Notebook con:\njupyter notebook \nó\njupyter notebook D:\\TallerPython\\Basico\nSe abrirá tu navegador en http://localhost:8888, mostrando el contenido de D:\\TallerPython\\Basico.\n\n¡Liste para tu taller de Python!",
+    "crumbs": [
+      "Día Uno",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descargar WinPython</span>"
+    ]
+  },
+  {
+    "objectID": "notebooks/02/002_a_Shiny.html",
+    "href": "notebooks/02/002_a_Shiny.html",
+    "title": "2  Instala Python",
+    "section": "",
+    "text": "Hola, para iniciar este curso vamos a ver cómo instalar Python y Jupyter Notebook desde cero, descargando directamente de python.org.\nRealizar esto nos asegura una instalación sencilla y que podemos instalar la versión que deseemos y que podemos personalizar nuestra instalación según necesitemos.\n\nVe python.org, selecciona y descarga Python para instalar en tu sistema operativo. \nInstala y asegurate de marcar Add Python.exe to PATH \nAsegurate de Python funciona en tu PowerShell ejecutando python o py\n\nInstala jupyter notebook, pandas y matplotlib, recuerda hacerlo con python -m pip install jupyter notebook pandas matplotlib \nAbre una terminal nueva y prueba que funciona ejecutando jupyter notebook",
+    "crumbs": [
+      "Día Dos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Instala Python</span>"
+    ]
+  }
+]
