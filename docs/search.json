@@ -31,14 +31,25 @@
     ]
   },
   {
+    "objectID": "notebooks/01/002_RedNeuronal.html",
+    "href": "notebooks/01/002_RedNeuronal.html",
+    "title": "2  Red neuronal",
+    "section": "",
+    "text": "# %%\nfrom matplotlib import scale\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nimport tensorflow as tf\nfrom sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay\n# %%\nf = \"data/acc_orientations.csv\"\ndatos = pd.read_csv(f)\n# %% \nplt.plot(datos.x)\nplt.plot(datos.y)\nplt.plot(datos.z)\n# %%\nX = datos[[\"x\",\"y\",\"z\"]].to_numpy().reshape(-1,100,3)\n# %%\netiquetas = datos[\"label\"].to_numpy().reshape(-1,100)\ny_str = etiquetas[:, 0]\ny = pd.Categorical(y_str,\n               categories=[\"U\",\"D\",\"L\",\"R\"],\n               ordered=True\n               ).codes\n# %%\nX,y\n# %%\nprint(X.shape, y.shape)\n# %%\nX_train, X_test, y_train, y_test = train_test_split(\n    X,y, test_size=0.2,stratify=y, random_state=42\n)\n# %%\nX_test_n,y_train\n# %%\nscaler = StandardScaler()\nX_train_2d = X_train.reshape(-1,3)\nX_test_2d = X_test.reshape(-1,3)\n\nX_train_n = scaler.fit_transform(X_train_2d).reshape(X_train.shape)\nX_test_n = scaler.fit_transform(X_test_2d).reshape(X_test.shape)\n# %%\nX_train_n\n# %%\nmodel = tf.keras.Sequential([ \n    tf.keras.layers.Conv1D(16,5, activation=\"relu\", input_shape=(100,3)),\n    tf.keras.layers.Conv1D(32,3, activation=\"relu\"),\n    tf.keras.layers.Conv1D(32,3, activation=\"relu\"),\n    tf.keras.layers.Conv1D(32,3, activation=\"relu\"),\n    tf.keras.layers.GlobalAveragePooling1D(),\n    tf.keras.layers.Dense(4,activation=\"softmax\"),\n])\nmodel.summary()\n# %%\nmodel.compile(\n    optimizer=\"adam\",\n    loss=\"sparse_categorical_crossentropy\",\n    metrics=[\"accuracy\"]\n)\n# %%\nearly = tf.keras.callbacks.EarlyStopping(\n    patience=3,restore_best_weights=True\n)\n\nhistory = model.fit(\n    X_train_n,y_train,\n    validation_split=0.15,\n    epochs=4, batch_size=64,\n    callbacks=[early],\n    verbose=1\n)\n# %%\nplt.plot(history.history[\"accuracy\"])\n# %%\ntest_loss, test_acc = model.evaluate(X_test_n,y_test)\ntest_acc\n# %%\ny_pred = model.predict(X_test_n).argmax(axis=1)\ncm = confusion_matrix(y_test,y_pred)\nConfusionMatrixDisplay(cm,).plot()\nplt.show()\n# %%\n\ntest_loss\n# %%\nX_test_n",
+    "crumbs": [
+      "Día Uno",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Red neuronal</span>"
+    ]
+  },
+  {
     "objectID": "notebooks/02/002_a_Shiny.html",
     "href": "notebooks/02/002_a_Shiny.html",
-    "title": "2  Instala Python",
+    "title": "3  Instala Python",
     "section": "",
     "text": "Hola, para iniciar este curso vamos a ver cómo instalar Python y Jupyter Notebook desde cero, descargando directamente de python.org.\nRealizar esto nos asegura una instalación sencilla y que podemos instalar la versión que deseemos y que podemos personalizar nuestra instalación según necesitemos.\n\nVe python.org, selecciona y descarga Python para instalar en tu sistema operativo. \nInstala y asegurate de marcar Add Python.exe to PATH \nAsegurate de Python funciona en tu PowerShell ejecutando python o py\n\nInstala jupyter notebook, pandas y matplotlib, recuerda hacerlo con python -m pip install jupyter notebook pandas matplotlib \nAbre una terminal nueva y prueba que funciona ejecutando jupyter notebook",
     "crumbs": [
       "Día Dos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Instala Python</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Instala Python</span>"
     ]
   }
 ]

@@ -1,0 +1,93 @@
+# Red neuronal
+
+```python
+# %%
+from matplotlib import scale
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+import tensorflow as tf
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+# %%
+f = "data/acc_orientations.csv"
+datos = pd.read_csv(f)
+# %% 
+plt.plot(datos.x)
+plt.plot(datos.y)
+plt.plot(datos.z)
+# %%
+X = datos[["x","y","z"]].to_numpy().reshape(-1,100,3)
+# %%
+etiquetas = datos["label"].to_numpy().reshape(-1,100)
+y_str = etiquetas[:, 0]
+y = pd.Categorical(y_str,
+               categories=["U","D","L","R"],
+               ordered=True
+               ).codes
+# %%
+X,y
+# %%
+print(X.shape, y.shape)
+# %%
+X_train, X_test, y_train, y_test = train_test_split(
+    X,y, test_size=0.2,stratify=y, random_state=42
+)
+# %%
+X_test_n,y_train
+# %%
+scaler = StandardScaler()
+X_train_2d = X_train.reshape(-1,3)
+X_test_2d = X_test.reshape(-1,3)
+
+X_train_n = scaler.fit_transform(X_train_2d).reshape(X_train.shape)
+X_test_n = scaler.fit_transform(X_test_2d).reshape(X_test.shape)
+# %%
+X_train_n
+# %%
+model = tf.keras.Sequential([ 
+    tf.keras.layers.Conv1D(16,5, activation="relu", input_shape=(100,3)),
+    tf.keras.layers.Conv1D(32,3, activation="relu"),
+    tf.keras.layers.Conv1D(32,3, activation="relu"),
+    tf.keras.layers.Conv1D(32,3, activation="relu"),
+    tf.keras.layers.GlobalAveragePooling1D(),
+    tf.keras.layers.Dense(4,activation="softmax"),
+])
+model.summary()
+# %%
+model.compile(
+    optimizer="adam",
+    loss="sparse_categorical_crossentropy",
+    metrics=["accuracy"]
+)
+# %%
+early = tf.keras.callbacks.EarlyStopping(
+    patience=3,restore_best_weights=True
+)
+
+history = model.fit(
+    X_train_n,y_train,
+    validation_split=0.15,
+    epochs=4, batch_size=64,
+    callbacks=[early],
+    verbose=1
+)
+# %%
+plt.plot(history.history["accuracy"])
+# %%
+test_loss, test_acc = model.evaluate(X_test_n,y_test)
+test_acc
+# %%
+y_pred = model.predict(X_test_n).argmax(axis=1)
+cm = confusion_matrix(y_test,y_pred)
+ConfusionMatrixDisplay(cm,).plot()
+plt.show()
+# %%
+
+test_loss
+# %%
+X_test_n
+```
+
+

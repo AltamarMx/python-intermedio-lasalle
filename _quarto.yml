@@ -27,6 +27,7 @@ book:
     - part: 'Día Uno' #notebooks/semanaUno/semana1.qmd
       chapters:         
         - notebooks/01/001_instala_python.qmd
+        - notebooks/01/002_RedNeuronal.qmd
     - part: 'Día Dos' #notebooks/semanaUno/semana1.qmd
       chapters:         
         - notebooks/02/002_a_Shiny.qmd 
